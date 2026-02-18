@@ -42,6 +42,14 @@ model.fit(X_train, y_train)
 # 3. Predict for a new house size (e.g., 2000 sq ft)
 predicted_price = model.predict([[2000]])
 ```
+or 
+
+Mathematically, the model tries to fit:
+```
+y = mx + b
+```
+Where: - y = predicted output - x = input feature - m = slope of the
+line - b = intercept
 ------------------------------------------------------------------------
 
 ## How to Run This Project
