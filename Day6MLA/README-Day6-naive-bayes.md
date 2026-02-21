@@ -118,64 +118,61 @@ model.fit(X_train, y_train)
 
 ------------------------------------------------------------------------
 
-## 📈 Comparison: Why Not Decision Trees?
+---
 
-Feature Comparison:
+## 📈 Comparison: Naive Bayes vs. Decision Trees
 
-Speed\
-- Naive Bayes: Extremely Fast\
-- Decision Trees: Slower (especially in high dimensions)
+In text classification, choosing the right model is critical. Here is why we often prefer Naive Bayes over Tree-based models for high-dimensional text:
 
-Data Volume\
-- Naive Bayes: Works well with small datasets\
-- Decision Trees: Needs more data to avoid overfitting
+| Feature | Naive Bayes | Decision Trees |
+| :--- | :--- | :--- |
+| **Speed** | **Extremely Fast** (Linear complexity) | **Slower** (O(depth) or worse in high dimensions) |
+| **Data Volume** | Works well with small/sparse datasets | Needs more data to avoid **Overfitting** |
+| **Independence** | Assumes features are independent | Captures complex **Feature Interactions** |
+| **Best For** | Text, Spam, Medical Diagnosis | Tabular Data, Credit Scoring, Fraud |
 
-Independence\
-- Naive Bayes: Assumes features are independent\
-- Decision Trees: Captures feature interactions
-
-Best For\
-- Naive Bayes: Text, Spam Detection, Medical Diagnosis\
-- Decision Trees: Tabular Data, Credit Scoring
-
-------------------------------------------------------------------------
+---
 
 ## 🌍 Real-World Applications
 
--   Spam Email Filtering\
--   Sentiment Analysis\
--   News Classification\
--   Fake News Detection\
--   Document Categorization\
--   Medical Diagnosis
+Naive Bayes is a workhorse in production environments where speed and efficiency are priorities:
 
-------------------------------------------------------------------------
+* 📩 **Spam Email Filtering:** Identifying junk mail based on word frequencies.
+* 🎭 **Sentiment Analysis:** Classifying reviews as positive, negative, or neutral.
+* 📰 **News Classification:** Sorting articles into categories like Sports, Tech, or Politics.
+* 🔍 **Fake News Detection:** Identifying patterns in misleading headlines.
+* 📂 **Document Categorization:** Organizing large-scale digital libraries.
+* 🩺 **Medical Diagnosis:** Predicting disease probability based on independent symptoms.
+
+---
 
 ## ✅ Advantages
 
--   Simple and easy to implement\
--   Extremely fast\
--   Works well with high-dimensional text data\
--   Requires less training data\
--   Performs surprisingly well despite independence assumption
+* **Simple & Fast:** Easy to implement and computationally inexpensive.
+* **High-Dimensionality:** Excels in text classification where the number of features (words) is very large.
+* **Small Data friendly:** Requires significantly less training data than complex models like Neural Networks.
+* **Robust Baseline:** Often performs surprisingly well even when the "Independence" assumption is violated.
 
-------------------------------------------------------------------------
+---
 
 ## ⚠️ Limitations
 
--   Assumes feature independence\
--   Not ideal for highly correlated features\
--   Struggles with complex non-linear relationships\
--   Performance depends on quality of preprocessing
+> [!IMPORTANT]
+> Understanding the constraints of your model is key to being a good ML Engineer.
 
-------------------------------------------------------------------------
+* **Feature Independence:** It assumes every word is independent, missing the context provided by word pairings (e.g., "Not good").
+* **Correlated Features:** Performance can drop if features are highly dependent on each other.
+* **Zero Frequency Issue:** If a word appears in the test set but not in training, the probability becomes zero (mitigated by **Laplace Smoothing**).
+* **Preprocessing Dependent:** Highly sensitive to how you clean your text (Stopwords, Stemming, etc.).
+
+---
 
 ## 🛠️ Tools & Libraries
 
-Language: Python\
-Libraries: scikit-learn, pandas\
-Vectorization: CountVectorizer\
-Environment: VS Code / Jupyter Notebook
+* **Python:** Primary language.
+* **Pandas:** For data manipulation and structuring.
+* **Scikit-learn:** For `CountVectorizer` and `MultinomialNB`.
+* **Matplotlib/Seaborn:** For visualizing the Confusion Matrix.
 
 ------------------------------------------------------------------------
 
